@@ -10,6 +10,8 @@ __all__ = (
     "get_env",
     "get_logger",
     "has_any_na",
+    "read_from_parquet",
+    "write_to_parquet",
 )
 
 
@@ -42,3 +44,15 @@ def get_logger(name: str, minimum_level: int = logging.DEBUG) -> logging.Logger:
 
 def has_any_na(df: pd.DataFrame, /) -> bool:
     return df.isna().any().any()
+
+
+def read_from_parquet(file_name: str, /) -> pd.DataFrame:
+    if not file_name.endswith(".parquet"):
+        raise ValueError("File should end with '.parquet'")
+    return pd.read_parquet(get_data_file_path(file_name), engine="pyarrow")
+
+
+def write_to_parquet(df: pd.DataFrame, file_name: str, /, *, include_index: bool = False):
+    if not file_name.endswith(".parquet"):
+        raise ValueError("File should end with '.parquet'")
+    df.to_parquet(get_data_file_path(file_name), engine="pyarrow", index=include_index)
