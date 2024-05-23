@@ -4,6 +4,7 @@ from typing import Final, Literal, TypedDict
 
 ___all__ = (
     "ALL_DATA_ENTRY_SCHEMA",
+    "ALL_DATA_WITH_DATES_ENTRY_SCHEMA",
     "ALL_PREDICTOR_NAMES",
     "PredictorName",
     "PREDICTOR_PORTS_ENTRY_SCHEMA",
@@ -453,12 +454,7 @@ ALL_DATA_ENTRY_SCHEMA: Final = SIGNED_PREDICTORS_ENTRY_SCHEMA | {
 }
 
 
-PREDICTOR_PORTS_ENTRY_SCHEMA: Final = {
-    "signalname": str,
-    "port": str,
+ALL_DATA_WITH_DATES_ENTRY_SCHEMA: Final = ALL_DATA_ENTRY_SCHEMA | {
     "date": date,
-    "ret": float,
-    "signallag": float | None,
-    "Nlong": int,
-    "Nshort": int,
+    "date_right": date,
 }
