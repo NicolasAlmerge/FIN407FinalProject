@@ -1,5 +1,6 @@
 import logging
 import os
+import pandas as pd
 from rich.logging import RichHandler
 from typing import Literal
 
@@ -8,6 +9,7 @@ __all__ = (
     "get_data_file_path",
     "get_env",
     "get_logger",
+    "has_any_na",
 )
 
 
@@ -36,3 +38,7 @@ def get_logger(name: str, minimum_level: int = logging.DEBUG) -> logging.Logger:
     logger = logging.getLogger(name)
     logger.setLevel(minimum_level)
     return logger
+
+
+def has_any_na(df: pd.DataFrame, /) -> bool:
+    return df.isna().any().any()
