@@ -1,0 +1,13 @@
+axes.titlesize : 14
+axes.labelsize : 12
+xtick.labelsize : 10
+ytick.labelsize : 10
+legend.fontsize : 10
+grid.color : 0.85
+grid.linestyle : --
+grid.linewidth : 0.5
+lines.linewidth : 2
+lines.markersize : 5
+font.family : sans-serif
+font.sans-serif : Arial
+figure.figsize : 7, 5
