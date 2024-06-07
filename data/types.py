@@ -455,6 +455,5 @@ ALL_DATA_ENTRY_SCHEMA: Final = SIGNED_PREDICTORS_ENTRY_SCHEMA | {
 
 
 ALL_DATA_WITH_DATES_ENTRY_SCHEMA: Final = ALL_DATA_ENTRY_SCHEMA | {
-    "date": date,
-    "date_right": date,
+    "date": date
 }
